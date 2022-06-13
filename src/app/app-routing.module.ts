@@ -5,6 +5,9 @@ import { AppRootComponent } from './app-root/app-root.component';
 const routes: Routes = [
   {
     path: '', component: AppRootComponent,
+    children: [
+      { path: '', loadChildren: () => import('./modules/landing-page/landing-page.module').then(m => m.LandingPageModule) }
+    ]
   }
 ];
 

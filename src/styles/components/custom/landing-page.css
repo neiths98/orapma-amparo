@@ -1,0 +1,17 @@
+
+.landing-page-hero-container {
+  height: 85vh;
+}
+
+.landing-page-hero {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+@media (max-width: 1040px) {
+  .landing-page-hero {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
