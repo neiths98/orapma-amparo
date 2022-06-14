@@ -1,3 +1,8 @@
+
+/* Guide */
+
+@import url('./components/guide/section.css');
+
 /* Components */
 
 @import url('./components/custom/default.css');

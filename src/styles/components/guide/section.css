@@ -1,0 +1,14 @@
+
+.section-container {
+  height: 90vh;
+}
+
+.section-container.section-primary {
+  background-color: #00AF66;
+  color: white;
+}
+
+.section-container.align-center {
+  display: flex;
+  align-items: center;
+}
