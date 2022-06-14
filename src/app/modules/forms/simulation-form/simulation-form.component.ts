@@ -25,6 +25,8 @@ export class SimulationFormComponent implements OnInit {
   priceString = '';
   priceWithoutPlanString = '';
   paidMinutes = 0;
+  planNameString = '';
+  percentDiscountString = '';
 
   constructor(private fb: FormBuilder) { }
 
@@ -72,6 +74,7 @@ export class SimulationFormComponent implements OnInit {
       const planIdValue = this.simulationForm.value.planField;
       const plan = FALE_MAIS_PLANS.find((plan) => plan.id === planIdValue)!;
 
+      this.planNameString = plan.name;
       let price = 0;
       let priceWithoutPlan = 0;
       let pricePerMinute = this.getPricePerMinute(dddFromValue, dddToValue)!;
@@ -85,6 +88,9 @@ export class SimulationFormComponent implements OnInit {
         pricePerMinute += pricePerMinute * plan.paidMinutesPercentFee/100;
         price = this.paidMinutes * pricePerMinute;
       }
+
+      const percentDiscount = 100 - (price * 100 / priceWithoutPlan);
+      this.percentDiscountString = `${percentDiscount.toFixed(2)}% OFF`;
 
       this.priceString = price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
       this.priceWithoutPlanString = priceWithoutPlan.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});

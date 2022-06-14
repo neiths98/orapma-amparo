@@ -50,4 +50,38 @@
       </div>
     </div>
   </form>
+
+  <div
+  *ngIf="priceString || priceWithoutPlanString"
+  class="row justify-content-center">
+    <div class="col-10">
+      <div class="card mt-5">
+        <div class="row g-0">
+          <div class="col-md-4 d-flex align-items-center">
+            <img class="img-fluid rounded-start" src="../../../../assets/svg/phone-call.svg" alt="">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Plano {{planNameString}}</h5>
+              <div class="row g-0">
+                <div class="col-12">
+                  <p class="card-text text-muted">Preço da ligação (sem {{planNameString}}): {{priceWithoutPlanString}}</p>
+                </div>
+                <div class="col-12">
+                  <p class="card-text fs-5">Preço da ligação (com {{planNameString}}):
+                    <br>{{priceString}}
+                    <small class="ms-2 fs-6 text-color-primary">{{percentDiscountString}}</small>
+                  </p>
+                </div>
+              </div>
+              <div class="d-grid mt-3">
+                <button class="btn btn-primary">Contratar plano</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -1,7 +1,9 @@
 
 /* Guide */
 
+@import url('./components/guide/text.css');
 @import url('./components/guide/section.css');
+@import url('./components/guide/card.css');
 
 /* Components */
 
