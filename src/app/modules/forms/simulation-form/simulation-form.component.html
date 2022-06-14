@@ -1,0 +1,53 @@
+
+<div class="row d-flex justify-content-center">
+  <div class="col-9 mb-4">
+    <h1>Escolha um plano e simule quanto vai economizar!</h1>
+  </div>
+  <form [formGroup]="simulationForm" (ngSubmit)="calculatePrices()">
+    <div class="row m-0">
+      <div class="col-3 mb-3">
+        <label class="form-label">DDD de origem:</label>
+        <select
+        (change)="onDDDFromChange($event)"
+        class="form-select"
+        formControlName="dddFromField">
+          <option *ngFor="let ddd of dddFromList" value="{{ddd}}">{{ddd}}</option>
+        </select>
+      </div>
+      <div class="col-3 mb-3">
+        <label class="form-label">DDD de destino:</label>
+        <select
+        class="form-select"
+        formControlName="dddToField">
+          <option *ngFor="let ddd of dddToList" value="{{ddd}}">{{ddd}}</option>
+        </select>
+      </div>
+      <div class="col-3 mb-3">
+        <label class="form-label">Plano:</label>
+        <select
+        class="form-select"
+        formControlName="planField">
+          <option *ngFor="let plan of faleMaisPlans" value="{{plan.id}}">{{plan.name}}</option>
+        </select>
+      </div>
+      <div class="col-3 mb-3 position-relative">
+        <label class="form-label">Minutos de ligação:</label>
+        <input
+        type="number"
+        class="form-control"
+        [class.is-invalid]="(simulationFormSubmitted && minutesField.dirty) && !minutesField.valid"
+        formControlName="minutesField">
+        <div class="invalid-tooltip">
+          <span *ngIf="minutesField.hasError('required')">O campo é obrigatório</span>
+          <span *ngIf="minutesField.hasError('min')">Número inválido</span>
+        </div>
+      </div>
+
+      <div class="col-12 mt-3">
+        <div class="d-grid">
+          <button class="btn btn-outline-light btn-lg">Calcular preço</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
