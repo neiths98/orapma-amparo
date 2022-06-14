@@ -5,7 +5,7 @@
   </div>
   <form [formGroup]="simulationForm" (ngSubmit)="onSimulationFormSubmit()">
     <div class="row m-0">
-      <div class="col-3 mb-3">
+      <div class="col-6 col-sm-3 mb-3">
         <label class="form-label">DDD de origem:</label>
         <select
         (change)="onDDDFromChange($event)"
@@ -14,7 +14,7 @@
           <option *ngFor="let ddd of dddFromList" value="{{ddd}}">{{ddd}}</option>
         </select>
       </div>
-      <div class="col-3 mb-3">
+      <div class="col-6 col-sm-3 mb-3">
         <label class="form-label">DDD de destino:</label>
         <select
         class="form-select"
@@ -22,7 +22,7 @@
           <option *ngFor="let ddd of dddToList" value="{{ddd}}">{{ddd}}</option>
         </select>
       </div>
-      <div class="col-3 mb-3">
+      <div class="col-6 col-sm-3 mb-3">
         <label class="form-label">Plano:</label>
         <select
         class="form-select"
@@ -30,7 +30,7 @@
           <option *ngFor="let plan of faleMaisPlans" value="{{plan.id}}">{{plan.name}}</option>
         </select>
       </div>
-      <div class="col-3 mb-3 position-relative">
+      <div class="col-6 col-sm-3 mb-3 position-relative">
         <label class="form-label">Minutos de ligação:</label>
         <input
         type="number"
