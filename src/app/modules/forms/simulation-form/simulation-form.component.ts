@@ -22,6 +22,10 @@ export class SimulationFormComponent implements OnInit {
   planField!: FormControl;
   minutesField!: FormControl;
 
+  priceString = '';
+  priceWithoutPlanString = '';
+  paidMinutes = 0;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -59,10 +63,31 @@ export class SimulationFormComponent implements OnInit {
     this.dddToField.setValue(this.dddToList[0]);
   }
 
-  calculatePrices() {
+  onSimulationFormSubmit() {
     this.simulationFormSubmitted = true;
     if (this.simulationForm.valid) {
-      // TODO: calcular preços
+      const dddFromValue = this.simulationForm.value.dddFromField;
+      const dddToValue = this.simulationForm.value.dddToField;
+      const minutesValue = this.simulationForm.value.minutesField;
+      const planIdValue = this.simulationForm.value.planField;
+      const plan = FALE_MAIS_PLANS.find((plan) => plan.id === planIdValue)!;
+
+      let price = 0;
+      let priceWithoutPlan = 0;
+      let pricePerMinute = this.getPricePerMinute(dddFromValue, dddToValue)!;
+      this.paidMinutes = 0;
+
+      if (minutesValue <= plan.freeMinutes) {
+        priceWithoutPlan = minutesValue * pricePerMinute;
+      } else {
+        priceWithoutPlan = minutesValue * pricePerMinute;
+        this.paidMinutes = minutesValue - plan.freeMinutes;
+        pricePerMinute += pricePerMinute * plan.paidMinutesPercentFee/100;
+        price = this.paidMinutes * pricePerMinute;
+      }
+
+      this.priceString = price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+      this.priceWithoutPlanString = priceWithoutPlan.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     }
   }
 

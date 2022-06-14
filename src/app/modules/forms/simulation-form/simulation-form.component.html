@@ -3,7 +3,7 @@
   <div class="col-9 mb-4">
     <h1>Escolha um plano e simule quanto vai economizar!</h1>
   </div>
-  <form [formGroup]="simulationForm" (ngSubmit)="calculatePrices()">
+  <form [formGroup]="simulationForm" (ngSubmit)="onSimulationFormSubmit()">
     <div class="row m-0">
       <div class="col-3 mb-3">
         <label class="form-label">DDD de origem:</label>
