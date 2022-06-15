@@ -1,27 +1,57 @@
-# Orapma
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+# Desafio Amparo Saúde
 
-## Development server
+Repositório contempla desafio de recrutamento da Amparo Saúde. O desafio consiste em uma aplicação de simulação de preços para
+uma empresa de telefonia.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Screenshots
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![App Screenshot](/src/assets/screenshots/orapma-screenshot.png)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Deploy GitHub Pages
 
-## Running unit tests
+O deploy do projeto foi feito através do GitHub Pages.  
+A aplicação pode ser acessada clicando [aqui](https://neiths98.github.io/orapma-amparo/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Tecnologias utilizadas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- CSS
+- HTML
+- Typescript
+- Angular
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Como rodar localmente
+
+### Pré-requisitos
+- node (v16.13.2)
+- npm (8.4.0)
+
+### Rodando aplicação
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/neiths98/orapma-amparo.git
+```
+
+Acesse o diretório do projeto
+
+```bash
+  cd orapma-amparo
+```
+
+Instale dependências
+
+```bash
+  npm install
+```
+
+Inicie a aplicação
+
+```bash
+  npm start
+```
