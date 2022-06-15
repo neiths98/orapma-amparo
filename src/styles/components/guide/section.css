@@ -1,6 +1,7 @@
 
 .section-container {
-  height: 90vh;
+  padding: 30px 0;
+  min-height: 90vh;
 }
 
 .section-container.section-primary {
