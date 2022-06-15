@@ -70,7 +70,7 @@
                 <div class="col-12">
                   <p class="card-text fs-5">Preço da ligação (com {{planNameString}}):
                     <br>{{priceString}}
-                    <small class="ms-2 fs-6 text-color-primary">{{percentDiscountString}}</small>
+                    <small *ngIf="percentDiscount > 0" class="ms-2 fs-6 text-color-primary">{{percentDiscountString}}</small>
                   </p>
                 </div>
               </div>
