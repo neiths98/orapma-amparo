@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { FALE_MAIS_VALUES } from 'src/app/resources/constants/fale-mais-values.contants';
 import { FALE_MAIS_PLANS } from 'src/app/resources/constants/fale-mais-plans.constants';
 
@@ -16,11 +16,11 @@ export class SimulationFormComponent implements OnInit {
   faleMaisPlans = Array.from(FALE_MAIS_PLANS, (plan) => plan);
 
   simulationFormSubmitted: boolean = false;
-  simulationForm!: FormGroup;
-  dddFromField!: FormControl;
-  dddToField!: FormControl;
-  planField!: FormControl;
-  minutesField!: FormControl;
+  simulationForm!: UntypedFormGroup;
+  dddFromField!: UntypedFormControl;
+  dddToField!: UntypedFormControl;
+  planField!: UntypedFormControl;
+  minutesField!: UntypedFormControl;
 
   priceString = '';
   priceWithoutPlanString = '';
@@ -29,17 +29,17 @@ export class SimulationFormComponent implements OnInit {
   percentDiscount = 0;
   percentDiscountString = '';
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.simulationFormInit();
   }
 
   simulationFormInit() {
-    this.dddFromField = new FormControl(this.dddFromList[0], Validators.required);
-    this.dddToField = new FormControl(this.dddToList[0], Validators.required);
-    this.planField = new FormControl(this.faleMaisPlans[0].id, Validators.required);
-    this.minutesField = new FormControl('15', [
+    this.dddFromField = new UntypedFormControl(this.dddFromList[0], Validators.required);
+    this.dddToField = new UntypedFormControl(this.dddToList[0], Validators.required);
+    this.planField = new UntypedFormControl(this.faleMaisPlans[0].id, Validators.required);
+    this.minutesField = new UntypedFormControl('15', [
       Validators.required,
       Validators.min(0)
     ]);
